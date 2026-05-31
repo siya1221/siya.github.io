@@ -617,12 +617,7 @@
       }
 
       /* mobile gallery — horizontal scroll carousel */
-      .gallery-carousel {
-        display: none;
-        overflow: hidden;
-        margin-top: 2rem;
-        position: relative;
-      }
+      .gallery-carousel{display:none;overflow:hidden;margin-top:2rem;position:relative;width:100%;}
       .gallery-carousel-track {
         display: flex;
         gap: 0.8rem;
@@ -633,14 +628,7 @@
       .gallery-carousel-track:active {
         cursor: grabbing;
       }
-      .gallery-carousel-track .gal-slide {
-        flex: 0 0 78vw;
-        max-width: 300px;
-        aspect-ratio: 3/4;
-        border-radius: 4px;
-        overflow: hidden;
-        position: relative;
-      }
+    .gallery-carousel-track .gal-slide{flex:0 0 78vw;max-width:300px;aspect-ratio:3/4;border-radius:4px;overflow:hidden;position:relative;background:var(--blush-deep);}
       .gallery-carousel-track .gal-slide .g-bg {
         height: 100%;
       }
@@ -1104,12 +1092,8 @@
         .gallery-section {
           padding: 3rem 1.4rem;
         }
-        .gallery-grid {
-          display: none;
-        }
-        .gallery-carousel {
-          display: block;
-        }
+       .gallery-grid{display:none !important;}
+.gallery-carousel{display:block !important;}
 
         /* bridal */
         .bridal {
@@ -1216,6 +1200,25 @@
         overflow: hidden;
         padding: 0 !important;
       }
+      /* Fix gallery carousel images on mobile */
+.gallery-carousel-track .gal-slide .g-bg {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+}
+.gallery-carousel-track .gal-slide {
+  position:relative;
+}
+.gallery-carousel-track .gal-slide img,
+.gallery-carousel-track .gal-slide video {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
     </style>
   </head>
   <body>
