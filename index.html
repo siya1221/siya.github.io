@@ -68,6 +68,12 @@
     "https://www.facebook.com/queensinnovationskannur"
   ]
 }
+  const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+},{threshold:0.1, rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -323,6 +329,38 @@ footer p{font-size:0.76rem;color:rgba(253,250,247,0.35)}
   .contact-inner{grid-template-columns:1fr;gap:2.5rem}
   .form-row{grid-template-columns:1fr}
   footer{padding:1.8rem 1.4rem;flex-direction:column;align-items:flex-start;gap:0.8rem}
+}
+  /* ── Smooth scroll performance fix ── */
+.services,
+.gallery-section {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.services-carousel-wrap,
+.services-mobile,
+.gallery-grid,
+.gallery-carousel {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  contain: layout style;
+}
+
+.service-card,
+.gallery-item,
+.gal-slide {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  contain: layout style paint;
+}
+
+.service-img img,
+.g-bg img {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 </style>
 </head>
